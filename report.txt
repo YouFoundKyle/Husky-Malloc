@@ -1,0 +1,41 @@
++--------------+------+------+------+
+| Collatz Ivec |      |      |      |
+| HW7          | 0.84 | 0.83 | 0.87 |
+| Par          | 0.05 | 0.05 | 0.04 |
+| System       | 0.06 | 0.01 | 0.02 |
++--------------+------+------+------+
+| Collatz List |      |      |      |
+| HW7          | 2.65 |  2.8 | 3.45 |
+| Par          | 0.07 | 0.07 | 0.07 |
+| System       |  0.1 | 0.06 | 0.07 |
++--------------+------+------+------+
+
+Test ran using a input of 3000
+
+OS: Ubuntu 18.04 bionic
+CPU: Intel Core i7-8750H @ 2x 2.208GHz
+RAM: 2975MiB
+
+
+The provided code from Prof Tuck was used for the HW7 tests as our code 
+wasn't working for HW7 and we decided to just try updating our code 
+for the assignment. One of the issues we noticed was that if we used a lock
+for the entirety of the malloc and free functions, the thread would be locked
+for a lot longer compared to if we just locked the thread when it was
+going to manipulate data. We also did various optimizations to reduce any
+time consuming tasks like looping through the entire free list. This was
+accompished by adding a pointer to the previous node in the array list, so
+that the entire array wouldn't need to be looped through in order to find 
+the previous node. 
+
+
+Our results support the idea that our optimizations improved our running times.
+Our optimized malloc isn't always faster then the system one but there were times
+where it would be. It was about a 50/50 split for which was faster using a list, 
+while it was more in favor of the system malloc when using an Ivec. We tried 
+implemening binning but it actually increased our running times form 0.07 to ~0.30
+so we scrapped that idea. We tried out best to beat the system malloc each time
+but it didn't end up being doable. :(
+
+
+

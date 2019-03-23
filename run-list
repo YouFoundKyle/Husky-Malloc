@@ -1,0 +1,12 @@
+#!/bin/sh
+echo hw7
+/usr/bin/time -p ./collatz-list-hw7 3000
+
+
+echo Par
+/usr/bin/time -p ./collatz-list-par 3000
+
+echo System
+
+/usr/bin/time -p ./collatz-list-sys 3000
+

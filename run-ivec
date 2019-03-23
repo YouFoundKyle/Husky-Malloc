@@ -1,0 +1,11 @@
+#!/bin/sh
+echo hw7
+/usr/bin/time -p ./collatz-ivec-hw7 3000
+
+echo Par
+/usr/bin/time -p ./collatz-ivec-par 3000
+
+echo System
+
+/usr/bin/time -p ./collatz-ivec-sys 3000
+
